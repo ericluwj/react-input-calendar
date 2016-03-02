@@ -63,6 +63,7 @@
     "purecss": "^0.6.0",
     "react-addons-test-utils": "^0.14.0",
     "react-ghfork": "^0.3.2",
+    "react-icons": "^1.0.3",
     "react-transform-hmr": "^1.0.1",
     "style-loader": "^0.13.0",
     "sync-exec": "^0.6.2",
