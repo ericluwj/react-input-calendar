@@ -2,6 +2,8 @@ import React from 'react'
 import cs from 'classnames'
 import moment from 'moment'
 import 'moment-range'
+import FaCalendar from 'react-icons/lib/fa/calendar'
+import FaCalendarO from 'react-icons/lib/fa/calendar-o'
 
 import DaysView from './day-view'
 import MonthsView from './month-view'
@@ -276,11 +278,9 @@ module.exports = React.createClass({
                 </span>
             </div>
 
-        let iconClass = this.props.customIcon == null ? (iconClass = cs({
-            'fa': true,
-            'fa-calendar': !this.state.isVisible,
-            'fa-calendar-o': this.state.isVisible
-        })) : null;
+        let icon = this.props.customIcon == null ? (icon = (
+            this.state.isVisible ? (<FaCalendar />) : (<FaCalendarO />)
+        )) : null;
 
         let readOnly = false;
 
@@ -298,7 +298,7 @@ module.exports = React.createClass({
         // Do not show calendar icon if hideIcon is true
         calendarIcon = this.props.hideIcon ? '' :
             <span className="icon-wrapper calendar-icon" onClick={this.toggleClick} >
-              <i className={iconClass}></i>
+              {icon}
             </span>
         else {
           calendarIcon = <span className={cs('icon-wrapper', 'calendar-icon', this.props.customIcon)} onClick={this.toggleClick}/>
